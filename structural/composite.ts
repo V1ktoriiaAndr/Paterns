@@ -69,7 +69,6 @@ abstract class WorldContainer implements WorldObject {
     generate(): void {
         this.generated = true;
         console.log(`🌍 Generating ${this.name}...`);
-        // Рекурсивна генерація всіх дітей
         for (const child of this.children) {
             child.generate();
         }
@@ -78,7 +77,7 @@ abstract class WorldContainer implements WorldObject {
     addItem(item: string): void {
         for (const child of this.children) {
             child.addItem(item);
-            return; // Додали в перший знайдений
+            return;
         }
         console.log(`⚠️ No space to add ${item} in ${this.name}`);
     }
@@ -94,7 +93,6 @@ abstract class WorldContainer implements WorldObject {
     }
 
     getTotalItems(): number {
-        // Рекурсивний підрахунок усіх предметів у піддереві
         return this.children.reduce((sum, child) => sum + child.getTotalItems(), 0);
     }
 

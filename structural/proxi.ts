@@ -52,7 +52,6 @@ class ChunkProxy implements IChunk {
         console.log(`📍 [Proxy ${x}:${z}] Створено (легкий об'єкт)`);
     }
 
-    // 🔥 Ключовий метод лінивого завантаження
     private loadIfNeeded(): void {
         if (!this.isLoaded) {
             console.log(`⚡ [Proxy ${this.x}:${this.z}] Перше звернення - завантажую Chunk...`);
